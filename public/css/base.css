@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(77, 77, 77);
+}
+
+.hor-center {
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+
+.my-bottom-border {
+    border-bottom: rgb(77, 77, 77) solid 1px;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: rgb(77, 77, 77);
+    color: white;
+}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <div class="row py-md-3 my-bottom-border">
+            <div class="col-2"><a href="{{ path('homepage') }}"><button type="button" class="btn btn-primary">Go back</button></a></div>
+            <div class="col-8"></div>
+            <div class="col-2"><button type="button" class="btn btn-primary">Reservations</button></div>
+        </div>
+        <div class="row my-md-3">
+            <div class="col-3" id="sticky-sidebar">
+                <div class="sticky-top">
+                    <div class="nav flex-column">
+                        <a href="{{ path('reservations', {week: currentWeek - 1}) }}" class="nav-link">Up</a>
+                        {% for date in dates %}
+                            {% set splitDate = date|split('-') %}
+                            <a href="#" class="nav-link">{{ splitDate[1]|upper }} {{ splitDate[0] }}</a>
+                        {% endfor %}
+                        <a href="{{ path('reservations', {week: currentWeek + 1}) }}" class="nav-link">Down</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">List of hours</div>
+        </div>
+{% endblock %}
