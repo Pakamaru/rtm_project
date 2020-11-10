@@ -10,15 +10,19 @@
             <div class="col-3" id="sticky-sidebar">
                 <div class="sticky-top">
                     <div class="nav flex-column">
-                        <a href="{{ path('reservations', {week: currentWeek - 1}) }}" class="nav-link">Up</a>
+                        <a href="{{ path('reservations', {week: currentWeek == 0 ? 999 : currentWeek - 1}) }}" class="nav-link">Up</a>
                         {% for date in dates %}
                             {% set splitDate = date|split('-') %}
-                            <a href="#" class="nav-link">{{ splitDate[1]|upper }} {{ splitDate[0] }}</a>
+                            <a href="{{ path('reservations', {week: currentWeek, chosenDate: date}) }}" class="nav-link">{{ splitDate[1]|upper }} {{ splitDate[0] }}</a>
                         {% endfor %}
                         <a href="{{ path('reservations', {week: currentWeek + 1}) }}" class="nav-link">Down</a>
                     </div>
                 </div>
             </div>
-            <div class="col-9">List of hours</div>
+            <div class="col-9">
+                {% for reservationItem in reservationItems %}
+                    <div class="reservation-item"><a href="#"><div class="reservation-item-name">{{ reservationItem.name }}</div><div class="reservation-item-date">{{ reservationItem.date|date }}</div></a></div>
+                {% endfor %}
+            </div>
         </div>
 {% endblock %}

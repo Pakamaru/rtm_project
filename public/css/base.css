@@ -12,11 +12,27 @@ body {
     border-bottom: rgb(77, 77, 77) solid 1px;
 }
 
-.nav-link {
+a {
     color: white;
 }
 
-.nav-link:hover {
+a:hover {
     background-color: rgb(77, 77, 77);
     color: white;
+    text-decoration: none;
+}
+
+.reservation-item {
+    width: fit-content;
+    padding: 0px 24px;
+    margin: 30px;
+    border: rgb(77, 77, 77) solid 2px;
+}
+
+.reservation-item:hover {
+    background-color: rgb(77, 77, 77);
+}
+
+.reservation-item-name {
+    font-size: 1.57rem;
 }
